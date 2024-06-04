@@ -9,6 +9,11 @@ import Product from "./product";
 import ProductList from "./productList";
 import Mango from "./mango";
 import Ripe from "./mangoList";
+import DeliverItem from "./ConditionalComp";
+import Item from "./ConditionalComp";
+import OperatorComp from "./OperatorComp";
+import Itemm from "./PractComp";
+import PackingList from "./PractComp";
 function App() {
  
   const profileData = {
@@ -67,6 +72,13 @@ function App() {
       <hr></hr>
       <Mango/>
       <Ripe/>
+      <hr></hr>
+      <DeliverItem/>
+      <hr></hr>
+      <OperatorComp userType={'admin'} />
+      <hr></hr>
+     
+      <PackingList/>
      </>
          
           
