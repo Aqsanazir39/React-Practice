@@ -14,6 +14,15 @@ import Item from "./ConditionalComp";
 import OperatorComp from "./OperatorComp";
 import Itemm from "./PractComp";
 import PackingList from "./PractComp";
+import Button from "./EventComp";
+
+import FunctionClick from "./FunctionClick";
+import ToolBar from "./AlertBtn";
+import { sculptureList } from "./StateComp";
+import { useState } from 'react';
+import RadioComponent from "./RadioComponent";
+import SelectComponent from "./SelectComponent";
+import CheckBoxComponent from "./CheckBoxComponent";
 function App() {
  
   const profileData = {
@@ -25,7 +34,7 @@ function App() {
   const laptopData = {
     brand: "Hp",
    
-    price: 999.99,
+    price: 1000,
     specs: {
       processor: "Intel Core i7",
       ram: "16GB",
@@ -33,6 +42,47 @@ function App() {
       
     }
   };
+
+
+
+
+
+
+
+
+ const [index , setIndex] = useState(0)
+
+  function handleClick() {
+    setIndex (index + 1);
+
+    if(index === 11){
+      setIndex(0);
+    }
+  
+  }
+
+  function handleBack() {
+    setIndex (index - 1);
+
+    if(index === 0){
+      setIndex(11);
+    }
+  }
+  let sculpture = sculptureList[index];
+
+// Today Practice 06/6/24
+
+  const [selectedRadio, setSelectedRadio] = useState('');
+
+  const handleRadioChange = (event) => {
+    setSelectedRadio(event.target.value);
+  };
+//Select Btn
+const [selectedValue , setSelectedValue] = useState('');
+
+const handleSelect = (select) =>{
+  setSelectedValue(select.target.value);
+};
 
   return (
      <>
@@ -79,6 +129,48 @@ function App() {
       <hr></hr>
      
       <PackingList/>
+      <hr></hr>
+      <Button/>
+      <hr></hr>
+
+      <hr></hr>
+      <FunctionClick/>
+      <hr></hr>
+      <ToolBar/>
+
+      <button onClick={handleClick}>
+        Next
+      </button>
+      
+      <button onClick={handleBack}>
+        Back
+      </button>
+      <hr></hr>
+      <h2>
+        <i>{sculpture.name} </i> 
+        by {sculpture.artist}
+      </h2>
+      <h3>  
+        ({index + 1} of {sculptureList.length-1})
+      </h3>
+      <img 
+        src={sculpture.url} 
+        alt={sculpture.alt}
+      />
+      <p>
+        {sculpture.description}
+      </p>
+
+      <div>
+      <hr></hr>
+      <RadioComponent handleRadioChange={handleRadioChange} />
+      <div id="selected_radio">{selectedRadio}</div>
+    </div>
+    <hr></hr>
+    <SelectComponent handleSelectChange={handleSelect}/>
+    <div id="selected_value">{selectedValue}</div>
+    <hr></hr>
+    <CheckBoxComponent/>
      </>
          
           

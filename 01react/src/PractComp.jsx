@@ -1,9 +1,16 @@
 import React from "react";
 
+
+
+
 function Itemm({name , isPacked}){
-  return <li >
-    {name}
-  </li> 
+ 
+   return(
+     <li className="item">
+      {name} {isPacked && '✔'}
+     </li>
+   
+    );
  
 }
 
@@ -17,6 +24,9 @@ export default function PackingList(){
 
 <Itemm isPacked = {false}
      name = "Pencil"/>
+
+<Itemm isPacked = {false}
+     name = "laptop"/>
   </section></div>
    
   );
